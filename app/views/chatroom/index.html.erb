@@ -5,38 +5,19 @@
 
 <div class="ui two column grid">
   <div class="twelve wide column">
-    <div class="ui fluid railsed card chatbox">
+    <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui feed">
           <h4 class="ui header">Users</h4>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Elliot Fu</em>: <i>Test Message 1</i>
+            <% @messages.each do |message| %>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <em><%= message.user.username %></em>: <i><%= message.body %></i>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Stevie Feliciano</em>: <i>Test Message 2</i>
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Helen Troy</em>: <i>Test Message 3</i>
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Christian Rocha</em>: <i>Test Message 4</i>
-              </div>
-            </div>
-          </div>
+            <% end %>
         </div>
       </div>
       <div class="extra content">
@@ -57,9 +38,15 @@
           </a>
           <a class="teal item">
             Messages
+              <div class="ui label">
+                <%= @messages.count %>
+              </div>
           </a>
           <a class="item">
             Friends
+              <div class="ui label">
+                <%= @users.count %>
+              </div>
           </a>
         </div>
       </div>
